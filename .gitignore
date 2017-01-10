@@ -1,5 +1,12 @@
 *.class
 
+#ide
+.idea/
+
+.out/
+.build/
+.gradle/
+
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
