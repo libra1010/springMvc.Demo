@@ -6,6 +6,7 @@ package cn.libra.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -17,6 +18,8 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @EnableWebMvc
 //指明controller所在的包名
 @ComponentScan(basePackages = {"cn.libra.controller"})
+// 加载.xml如果没有使用到额外的.xml配置文件，则无需加载
+@ImportResource({ "classpath:spring-mybatis.xml" })
 public class SpringMvcConifg extends WebMvcConfigurerAdapter {
 
     /**

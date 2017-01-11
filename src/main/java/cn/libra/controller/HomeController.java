@@ -1,5 +1,7 @@
 package cn.libra.controller;
 
+import cn.libra.dao.IUserMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import cn.libra.dto.*;
@@ -10,6 +12,9 @@ import cn.libra.dto.*;
 
 @Controller
 public class HomeController {
+
+    @Autowired
+    private IUserMapper userMapper = null;
 
     @RequestMapping(value="/" )
     public String index(){
@@ -26,5 +31,11 @@ public class HomeController {
         u.setName("展示");
         u.setStatus(id1);
         return u;
+    }
+
+    @RequestMapping(value="/getUser")
+    @ResponseBody
+    public cn.libra.domain.User GetUser(){
+        return userMapper.selectByPrimaryKey(1);
     }
 }

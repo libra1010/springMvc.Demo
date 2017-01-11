@@ -30,14 +30,24 @@ repositories {
 [compileJava,compileTestJava,javadoc]*.options*.encoding = "UTF-8"
 dependencies {
     def springVersion = "4.3.5.RELEASE"
-    compile("org.springframework:spring-webmvc:$springVersion")
-    compile group: 'org.springframework.security.oauth', name: 'spring-security-oauth2', version: '2.0.12.RELEASE'
+    compile("org.springframework:spring-webmvc:$springVersion") //MVC
+    compile("org.springframework:spring-test:$springVersion") //测试
+    compile("org.springframework:spring-tx:$springVersion") //事物
+    compile("org.springframework:spring-jdbc:$springVersion") //JDBC
+    compile group: 'org.springframework.security.oauth', name: 'spring-security-oauth2', version: '2.0.12.RELEASE' //OAUTH2
+
+    compile group: 'commons-dbcp', name: 'commons-dbcp', version: '1.4' //DHCP连接池
+
     compile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.0.1'
     compile "javax.inject:javax.inject:1"
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.8.5'
     compile group: 'org.mybatis', name: 'mybatis-spring', version: '1.3.1'
+    compile group: 'log4j', name: 'log4j', version: '1.2.17'
+    compile group: 'org.mybatis.generator', name: 'mybatis-generator-core', version: '1.3.5'
+    compile group: 'org.mybatis', name: 'mybatis', version: '3.4.2'
+    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.40'
 
-    testCompile group: 'junit', name: 'junit', version: '4.11'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
 
     def tomcatVersion = '8.5.9'
     tomcat   "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
