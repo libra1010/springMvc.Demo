@@ -15,8 +15,8 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'war'
 apply plugin: 'idea'
-//apply plugin:'jetty'
-apply plugin: 'com.bmuschko.tomcat'
+apply plugin:'jetty'
+//apply plugin: 'com.bmuschko.tomcat'
 
 sourceCompatibility = 1.5
 
@@ -59,16 +59,16 @@ tasks.withType(JavaCompile) {
 }
 
 
-tomcatRun{
-    contextPath= project.name
-    URIEncoding= 'UTF-8'
-    reloadable = 'true'
-}
-
-//jettyRun{
-//    webAppSourceDirectory file("$projectDir/src/main/webapp")
-//    httpPort 8081
-//    contextPath project.name
-//    scanIntervalSeconds 0
-//    reload "automatic"
+//tomcatRun{
+//    contextPath= project.name
+//    URIEncoding= 'UTF-8'
+//    reloadable = 'true'
 //}
+
+jettyRun{
+    webAppSourceDirectory file("$projectDir/src/main/webapp")
+    httpPort 8081
+    contextPath project.name
+    scanIntervalSeconds 0
+    reload "automatic"
+}
